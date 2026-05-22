@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cockroach Janata Party ($CJP) - Resilient AF</title>
+    <style>
+        :root {
+            --primary: #ff9933; /* Political Saffron/Orange */
+            --secondary: #138808; /* Eco/Party Green */
+            --dark: #111111;
+            --light: #ffffff;
+            --accent: #b22222; /* Roach Brown/Red */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Black', Gadget, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- Animation Background --- */
+        .roach-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .roach {
+            position: absolute;
+            width: 25px;
+            height: 15px;
+            background: #3e2723;
+            border-radius: 50% 50% 40% 40%;
+            opacity: 0.3;
+            animation: scurry 8s infinite linear;
+        }
+
+        /* Simulating random scurrying bugs */
+        .roach::before, .roach::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 1px;
+            background: #3e2723;
+        }
+        .roach::before { top: 2px; left: -8px; transform: rotate(-20deg); }
+        .roach::after { bottom: 2px; left: -8px; transform: rotate(20deg); }
+
+        .r1 { top: 15%; left: -5%; animation-delay: 0s; }
+        .r2 { top: 45%; left: -5%; animation-delay: 2s; }
+        .r3 { top: 75%; left: -5%; animation-delay: 4s; }
+
+        @keyframes scurry {
+            0% { left: -5%; transform: translateY(0) rotate(90deg); }
+            25% { transform: translateY(15px) rotate(85deg); }
+            50% { transform: translateY(-15px) rotate(95deg); }
+            75% { transform: translateY(10px) rotate(90deg); }
+            100% { left: 105%; transform: translateY(0) rotate(90deg); }
+        }
+
+        /* --- Layout --- */
+        header {
+            background: linear-gradient(90deg, var(--primary), var(--light), var(--secondary));
+            padding: 5px;
+            text-align: center;
+            color: #000;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: var(--primary);
+            text-shadow: 3px 3px 0px var(--accent), -1px -1px 0px #000;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.03); }
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 30px;
+            background: rgba(0,0,0,0.6);
+            padding: 5px 15px;
+            border-radius: 5px;
+        }
+
+        /* --- CA Placeholder Space --- */
+        .ca-container {
+            background: rgba(255, 153, 51, 0.1);
+            border: 2px dashed var(--primary);
+            padding: 15px 25px;
+            border-radius: 50px;
+            margin-bottom: 40px;
+            max-width: 90%;
+            word-break: break-all;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .ca-container:hover {
+            background: rgba(255, 153, 51, 0.2);
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        .ca-label {
+            font-size: 0.8rem;
+            color: #aaa;
+            display: block;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .ca-address {
+            font-family: monospace;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            background: var(--primary);
+            color: #000;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 5px 0 var(--accent);
+            transition: all 0.1s;
+        }
+
+        .btn:active {
+            transform: translateY(5px);
+            box-shadow: 0 0px 0 var(--accent);
+        }
+
+        /* --- Contact / Buy Form Section --- */
+        .buy-section {
+            background: #1a1a1a;
+            padding: 60px 20px;
+            position: relative;
+            z-index: 1;
+            border-top: 5px solid var(--secondary);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 30px;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #222;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #333;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 5px;
+            font-family: sans-serif;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--secondary);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #0f6e06;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0a0a0a;
+            color: #666;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Scurrying Cockroaches Animation Container -->
+    <div class="roach-background">
+        <div class="roach r1"></div>
+        <div class="roach r2"></div>
+        <div class="roach r3"></div>
+    </div>
+
+    <header>
+        COCKROACH JANATA PARTY • THE ONLY COIN THAT SURVIVES A NUCLEAR WAR • BUY NOW
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Cockroach Janata Party</h1>
+        <div class="tagline">Scattered Across the Blockchain, Unkillable in the Market! 🪳</div>
+
+        <!-- Space for Contract Address (CA) -->
+        <div class="ca-container" onclick="copyCA()">
+            <span class="ca-label">👇 Click to Copy Contract Address 👇</span>
+            <!-- REPLACE THE TEXT BELOW ONCE COIN IS DEPLOYED -->
+            <span id="ca-address" class="ca-address">CA_WILL_BE_UPDATED_AFTER_LAUNCH_STAY_TUNED</span>
+        </div>
+
+        <a href="#buy" class="btn">👉 BUY NOW / JOIN PARTY</a>
+    </section>
+
+    <!-- Buy / Contact Form Section -->
+    <section id="buy" class="buy-section">
+        <h2 class="section-title">Join the Rally / OTC Buy Order</h2>
+        <div class="form-container">
+            <form action="#" method="POST" onsubmit="alert('Form submitted! Our party workers will reach out.'); return false;">
+                <div class="form-group">
+                    <label>Your Name / Telegram Handle</label>
+                    <input type="text" placeholder="@username or Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Your Wallet Address</label>
+                    <input type="text" placeholder="0x..." required>
+                </div>
+                <div class="form-group">
+                    <label>Message / Allocation Amount Request</label>
+                    <textarea rows="4" placeholder="How many $CJP do you want to secure?"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">SUBMIT REQUEST</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Cockroach Janata Party. $CJP is a meme coin with no intrinsic value. Built to survive the trenches.
+    </footer>
+
+    <script>
+        // Copy function for when you add your real CA later
+        function copyCA() {
+            const caText = document.getElementById('ca-address').innerText;
+            if(caText.includes("LAUNCH")) {
+                alert("Coin hasn't launched yet! Keep an eye out.");
+                return;
+            }
+            navigator.clipboard.writeText(caText);
+            alert("Contract Address Copied: " + caText);
+        }
+    </script>
+</body>
+</html>
